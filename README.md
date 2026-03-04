@@ -35,7 +35,7 @@ Siga os passos abaixo para configurar o projeto localmente:
     ```sh
     task new-exec [nome_pasta]
     ```
-## Orientações para realizar os alunos Trilha - Dev: Python
+## Orientações para os alunos Trilha - Dev: Python
 
 Para fazer os exercícios, você precisará copiar o repositório da organização Splor-mg no GitHub para sua conta pessoal. Isso pode ser feito com um `fork` e abaixo está o passo a passo de como isso deve ser feito.
 
