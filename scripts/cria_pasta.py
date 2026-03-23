@@ -31,16 +31,43 @@ def test_options_resposta():
     assert resposta(0.93) == 930, f"Esperado valor 930"
 """
 
+conteudo_readme = """**Tags:** <lista de temas relacionados>  
+**Nível:** <Iniciante | Intermediário | Avançado>
+
+## Objetivo
+
+<Explicação simples do que o exercício treina e por que ele é importante>
+
+## Especificação
+
+### <Título da tarefa>
+
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
+
+<Explique claramente o que a função deve receber e o que deve retornar>
+
+Regras:
+
+- <Regra 1>
+- <Regra 2>
+- <Regra 3>
+
+Exemplos:
+
+- <exemplo 1>  
+- <exemplo 2>
+
+**Atenção:** utilize `return`, não `print`.
+
+"""
+
 caminho_pasta = Path(args.caminho_pasta)
 if not caminho_pasta.parent.is_dir(): 
     print(f'{caminho_pasta.parent} não é um caminho válido.')
 else:
     caminho_pasta.mkdir()
     (caminho_pasta / '_README.md').touch()
-    (caminho_pasta / '_README.md').write_text(
-    '## Objetivo\n'
-    '## Especificação'
-    )
+    (caminho_pasta / '_README.md').write_text(conteudo_readme, encoding="utf-8")
     (caminho_pasta / 'main.py').touch()
     (caminho_pasta / 'main.py').write_text(
     'def resposta():\n' 
