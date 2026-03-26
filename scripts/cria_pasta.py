@@ -31,8 +31,10 @@ def test_options_resposta():
     assert resposta(0.93) == 930, f"Esperado valor 930"
 """
 
-conteudo_readme = """**Tags:** <lista de temas relacionados>  
+conteudo_readme = """---
+**Tags:** <lista de temas relacionados>  
 **Nível:** <Iniciante | Intermediário | Avançado>
+---
 
 ## Objetivo
 
