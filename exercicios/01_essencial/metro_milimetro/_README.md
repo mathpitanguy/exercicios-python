@@ -1,12 +1,28 @@
+**Tags:** Operações Aritméticas, Funções, Conversão de Tipos  
+**Nível:** Iniciante
+
 ## Objetivo
 
-Este é um exercício introdutório para praticar a leitura de valores e operações matemáticas básicas. 
+Neste exercício, você irá praticar a conversão de unidades de medida utilizando operações matemáticas simples.
 
 ## Especificação
 
-### Transforme de metros para militetros
+### Converta metros para milímetros
 
-- Abra o arquivo `main.py`. Dentro dele, você encontrará a função `resposta`.
-- Essa função deverá receber um número em metros e retornar o seu equivalente em milimetros.
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-Atenção: utilize return, não print.
+Essa função deverá receber um número representando uma medida em **metros**.
+
+Sua tarefa é **retornar o valor equivalente em milímetros**.
+
+Regras:
+
+- Considere que:
+  - 1 metro = 1000 milímetros  
+
+Exemplos:
+
+- `resposta(1)` → `1000`  
+- `resposta(2.5)` → `2500`  
+
+**Atenção:** utilize `return`, não `print`.

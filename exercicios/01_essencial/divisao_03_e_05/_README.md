@@ -1,22 +1,30 @@
+**Tags:** Condicionais, Operadores de Comparação, Operadores Lógicos  
+**Nível:** Iniciante
+
 ## Objetivo
 
-O desafio FizzBuzz é um dos exercícios clássicos de programação, frequentemente usado para treinar lógica condicional e operações matemáticas simples. Ele aparece em entrevistas, testes e cursos introdutórios, pois ajuda a desenvolver o raciocínio sobre múltiplos e estrutura de decisões.
-
-Vamos implementar nossa própria versão deste desafio para colocar em prática o que aprendemos.
+O desafio FizzBuzz é um exercício clássico utilizado para treinar lógica condicional. Ele ajuda a desenvolver o raciocínio necessário para trabalhar com múltiplas regras ao mesmo tempo.
 
 ## Especificação
-### Implemente o comportamento FizzBuzz
 
-Abra o arquivo `main.py` Dentro dele, certifique-se de que a função `resposta` receba um inteiro positivo `n` e retorne:
+### Implemente o FizzBuzz
 
-- 'Fizz' se n for divisível por 3
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-- 'Buzz' se n for divisível por 5
+A função deve receber um inteiro positivo `n` e retornar:
 
-- 'FizzBuzz' se n for divisível simultaneamente por 3 e 5
+Regras:
 
-- O próprio número n (como inteiro) nos demais casos
+- `'Fizz'` se `n` for divisível por 3  
+- `'Buzz'` se `n` for divisível por 5  
+- `'FizzBuzz'` se `n` for divisível por 3 e por 5  
+- O próprio número `n` nos demais casos
 
-O retorno da função deverá ser uma String ou um int, dependendo das condições acima.
+Exemplos:
 
-Atenção: utilize return, não print.
+- `resposta(3)` → `'Fizz'`  
+- `resposta(5)` → `'Buzz'`  
+- `resposta(15)` → `'FizzBuzz'`  
+- `resposta(7)` → `7`
+
+**Atenção:** utilize `return`, não `print`.

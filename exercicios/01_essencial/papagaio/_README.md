@@ -1,23 +1,36 @@
+**Tags:** Condicionais, Operadores Lógicos  
+**Nível:** Iniciante
+
 ## Objetivo
 
-Neste exercício, vamos treinar lógica condicional avaliando duas informações ao mesmo tempo: um comportamento (o papagaio estar falando ou não) e um horário específico do dia. O objetivo é determinar quando isso representa um problema.
+Este exercício trabalha a combinação de condições para tomar decisões com base em múltiplos fatores.
 
 ## Especificação
+
 ### Verifique se há problema com o papagaio
 
-Abra o arquivo `main.py`. Nele, você encontrará a função `resposta`.
-Essa função deverá receber dois parâmetros:
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-- falando — um valor booleano indicando se o papagaio está falando.
-- hora — um inteiro entre 0 e 23, representando o horário do dia.
+A função deve receber:
 
-Sua tarefa é retornar True se estivermos com problemas, seguindo as regras abaixo:
+- `falando` (booleano)
+- `hora` (inteiro entre 0 e 23)
 
-Há problema se o papagaio estiver falando:
+Sua tarefa é retornar `True` se houver problema.
 
-- E o horário for antes das 7
-- Ou depois das 20
+Regras:
 
-Nos demais casos, retorne `False`.
+- Há problema se o papagaio estiver falando  
+- E o horário for antes das 7 (`hora < 7`)  
+- Ou depois das 20 (`hora > 20`)  
 
-Atenção: utilize return, não print.
+Caso contrário, retorne `False`.
+
+Exemplos:
+
+- `resposta(True, 6)` → `True`  
+- `resposta(True, 21)` → `True`  
+- `resposta(True, 10)` → `False`  
+- `resposta(False, 6)` → `False`
+
+**Atenção:** utilize `return`, não `print`.

@@ -1,13 +1,21 @@
+**Tags:** Strings, Funções, Return Statement  
+**Nível:** Iniciante
+
 ## Objetivo
 
-Reza a lenda que que o programador que não fizer no seu primeiro código as instruções que escreva na tela o simples "Hello World" ou "Olá Mundo" não será um bom profissional na área da programação. Sendo verdadeiro ou não, vamos nos certificar que nosso "Olá Mundo" seja criado.
+Este exercício introduz o conceito básico de retorno de valores em funções. Vamos garantir que você entenda a diferença entre exibir um valor e retorná-lo.
 
 ## Especificação
 
-### Retorne Olá Mundo
+### Retorne "Olá Mundo"
 
-Abra o arquivo `main.py`. Certifique-se que a função `resposta` retorne a expressão 'Olá Mundo'.
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-O resultado de sua função deverá ser uma `String` com exatos 9 caracteres.
+Sua tarefa é fazer com que a função retorne a string `'Olá Mundo'`.
 
-Atenção: utilize return, não print.
+Regras:
+
+- O retorno deve ser exatamente `'Olá Mundo'`
+- A string deve conter **9 caracteres**, incluindo o espaço
+
+**Atenção:** utilize `return`, não `print`.

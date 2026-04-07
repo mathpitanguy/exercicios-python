@@ -1,23 +1,31 @@
+**Tags:** Strings, Manipulação de Strings  
+**Nível:** Iniciante
+
 ## Objetivo
 
-Manipular strings é uma habilidade essencial no início do aprendizado de programação. Neste exercício, vamos praticar como criar novas strings a partir de uma original, removendo um caractere específico com base em sua posição.
+Neste exercício, você irá praticar a manipulação de strings removendo caracteres com base em uma posição específica.
 
 ## Especificação
-### Remova um caractere de uma posição específica
 
-Abra o arquivo `main.py`. Dentro dele, localize a função resposta. Essa função deverá receber:
+### Remova um caractere da string
 
-- uma `String` chamada `palavra`
-- um `int` chamado `index`
+Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-Sua tarefa é retornar uma nova `string` igual à original, mas sem o caractere localizado na posição `index`.
+A função deve receber:
 
-As regras são:
+- uma string `palavra`
+- um inteiro `index`
 
-- Se `index` for válido, remova o caractere daquela posição.
-    Exemplo: apaga('batatinha', 1) → 'btatinha'
-    Exemplo: apaga('batatinha', 4) → 'batainha'
+Sua tarefa é retornar uma nova string sem o caractere da posição `index`.
 
-- Se `index` for maior ou igual ao tamanho da palavra, retorne a `string` original sem alterações.
+Regras:
 
-Atenção: utilize return, não print.
+- Se o índice for válido, remova o caractere correspondente  
+- Se o índice for maior ou igual ao tamanho da string, retorne a string original  
+
+Exemplos:
+
+- `resposta('batatinha', 1)` → `'btinha'`  
+- `resposta('batatinha', 4)` → `'batainha'`
+
+**Atenção:** utilize `return`, não `print`.
