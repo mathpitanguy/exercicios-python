@@ -1,2 +1,3 @@
 def resposta(n):
-    pass
+    n = n * 1000
+    return n
