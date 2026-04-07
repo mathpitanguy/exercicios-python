@@ -1,2 +1,7 @@
 def resposta(km, dias):
-    pass
+    dias = int(dias)
+    km = float(km)
+
+    divida = (dias * 60) + (km * 0.15)
+
+    return divida
