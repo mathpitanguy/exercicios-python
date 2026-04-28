@@ -18,12 +18,10 @@ Métodos de Lista
 Tuplas
 Desempacotamento (Unpacking)
 Dicionários
-Conversor de Emojis
 Funções
 Parâmetros
 Argumentos Nomeados (Keyword Arguments)
 Instrução return
-Criando Funções Reutilizáveis
 Tratamento de Exceções
 Comentários
 Classes
