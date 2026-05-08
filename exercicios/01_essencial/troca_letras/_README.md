@@ -1,5 +1,7 @@
-**Tags:** Strings, Manipulação de Strings, Condicionais  
-**Nível:** Iniciante
+---
+Tags: Strings, Manipulação de Strings, Condicionais
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -22,8 +24,8 @@ Regras:
 
 Exemplos:
 
-- `troca('code')` → `'eodc'`  
-- `troca('a')` → `'a'`  
+- `troca('code')` → `'eodc'`
+- `troca('a')` → `'a'`
 - `troca('ab')` → `'ba'`
 
 **Atenção:** utilize `return`, não `print`.

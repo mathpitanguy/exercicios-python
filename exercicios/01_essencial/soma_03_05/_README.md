@@ -1,5 +1,7 @@
-**Tags:** Loops, Operadores Aritméticos, Condicionais  
-**Nível:** Intermediário
+---
+Tags: Loops, Operadores Aritméticos, Condicionais
+Nível: Intermediário
+---
 
 ## Objetivo
 
@@ -17,13 +19,13 @@ Sua tarefa é retornar a soma de todos os números menores que `n` que sejam mú
 
 Regras:
 
-- Considere apenas números menores que `n`  
-- Inclua múltiplos de 3, de 5 ou de ambos  
+- Considere apenas números menores que `n`
+- Inclua múltiplos de 3, de 5 ou de ambos
 
 Exemplos:
 
-- `resposta(5)` → `3`  
-- `resposta(10)` → `23`  
+- `resposta(5)` → `3`
+- `resposta(10)` → `23`
 - `resposta(20)` → `78`
 
 **Atenção:** utilize `return`, não `print`.

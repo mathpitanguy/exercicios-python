@@ -1,5 +1,7 @@
-**Tags:** Operações Aritméticas, Funções, Parâmetros  
-**Nível:** Iniciante
+---
+Tags: Operações Aritméticas, Funções, Parâmetros
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -23,12 +25,12 @@ Sua tarefa é **retornar o preço total a pagar**.
 Regras:
 
 - O custo é composto por:
-  - R$ 60,00 por dia  
-  - R$ 0,15 por quilômetro rodado  
+  - R$ 60,00 por dia
+  - R$ 0,15 por quilômetro rodado
 
 Exemplos:
 
-- `resposta(100, 2)` → `135.0`  
-- `resposta(0, 1)` → `60.0`  
+- `resposta(100, 2)` → `135.0`
+- `resposta(0, 1)` → `60.0`
 
 **Atenção:** utilize `return`, não `print`.

@@ -1,5 +1,7 @@
-**Tags:** Operações Aritméticas, Funções, Parâmetros  
-**Nível:** Iniciante
+---
+Tags: Operações Aritméticas, Funções, Parâmetros
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -23,14 +25,14 @@ Sua tarefa é **retornar o total de segundos correspondente à soma desses valor
 Regras:
 
 - Considere que:
-  - 1 dia = 24 horas  
-  - 1 hora = 60 minutos  
-  - 1 minuto = 60 segundos  
+  - 1 dia = 24 horas
+  - 1 hora = 60 minutos
+  - 1 minuto = 60 segundos
 
 Exemplos:
 
-- `resposta(0, 0, 1, 0)` → `60`  
-- `resposta(0, 1, 0, 0)` → `3600`  
-- `resposta(1, 0, 0, 0)` → `86400`  
+- `resposta(0, 0, 1, 0)` → `60`
+- `resposta(0, 1, 0, 0)` → `3600`
+- `resposta(1, 0, 0, 0)` → `86400`
 
 **Atenção:** utilize `return`, não `print`.

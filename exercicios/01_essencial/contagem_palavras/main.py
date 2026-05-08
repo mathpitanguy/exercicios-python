@@ -1,0 +1,2 @@
+def resposta(texto):
+    pass

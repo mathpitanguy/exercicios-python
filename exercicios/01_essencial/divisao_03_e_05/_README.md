@@ -1,5 +1,7 @@
-**Tags:** Condicionais, Operadores de Comparação, Operadores Lógicos  
-**Nível:** Iniciante
+---
+Tags: Condicionais, Operadores de Comparação, Operadores Lógicos
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -15,16 +17,16 @@ A função deve receber um inteiro positivo `n` e retornar:
 
 Regras:
 
-- `'Fizz'` se `n` for divisível por 3  
-- `'Buzz'` se `n` for divisível por 5  
-- `'FizzBuzz'` se `n` for divisível por 3 e por 5  
+- `'Fizz'` se `n` for divisível por 3
+- `'Buzz'` se `n` for divisível por 5
+- `'FizzBuzz'` se `n` for divisível por 3 e por 5
 - O próprio número `n` nos demais casos
 
 Exemplos:
 
-- `resposta(3)` → `'Fizz'`  
-- `resposta(5)` → `'Buzz'`  
-- `resposta(15)` → `'FizzBuzz'`  
+- `resposta(3)` → `'Fizz'`
+- `resposta(5)` → `'Buzz'`
+- `resposta(15)` → `'FizzBuzz'`
 - `resposta(7)` → `7`
 
 **Atenção:** utilize `return`, não `print`.

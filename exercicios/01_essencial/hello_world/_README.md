@@ -1,5 +1,7 @@
-**Tags:** Strings, Funções, Return Statement  
-**Nível:** Iniciante
+---
+Tags: Strings, Funções, Return Statement
+Nível: Iniciante
+---
 
 ## Objetivo
 

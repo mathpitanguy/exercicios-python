@@ -1,5 +1,7 @@
-**Tags:** Operações Aritméticas, Funções  
-**Nível:** Iniciante
+---
+Tags: Operações Aritméticas, Funções
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -17,11 +19,11 @@ Sua tarefa é retornar a soma desses dois valores.
 
 Regras:
 
-- O resultado deve ser um número inteiro  
+- O resultado deve ser um número inteiro
 
 Exemplos:
 
-- `resposta(2, 3)` → `5`  
+- `resposta(2, 3)` → `5`
 - `resposta(-1, 1)` → `0`
 
 **Atenção:** utilize `return`, não `print`.

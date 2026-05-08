@@ -1,5 +1,7 @@
-**Tags:** Operações Aritméticas, Funções, Parâmetros  
-**Nível:** Iniciante
+---
+Tags: Operações Aritméticas, Funções, Parâmetros
+Nível: Iniciante
+---
 
 ## Objetivo
 
@@ -29,7 +31,6 @@ Regras:
 
 Exemplos:
 
-- `resposta(10, 1)` → `25` (valor aproximado)  
+- `resposta(10, 1)` → `25` (valor aproximado)
 
 **Atenção:** utilize `return`, não `print`.
-
