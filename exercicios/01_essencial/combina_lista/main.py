@@ -1,2 +1,2 @@
 def resposta(lista1, lista2):
-    pass
+    return lista1 + lista2

@@ -1,2 +1,4 @@
 def resposta(nome):
-    pass
+    nome = str(nome)
+    frase = f"Bem-vindo, {nome}!"
+    return frase

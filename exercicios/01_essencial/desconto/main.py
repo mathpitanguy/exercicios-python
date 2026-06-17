@@ -1,2 +1,6 @@
 def resposta(preço, desconto):
-    pass
+    preço = int (preço)
+    desconto = preço * (desconto / 100)
+    precofinal = preço - desconto
+
+    return (desconto,precofinal)
