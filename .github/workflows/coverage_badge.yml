@@ -39,11 +39,19 @@ jobs:
 
       - name: Publica a badge na branch coverage-badge
         run: |
-          cp tests.svg /tmp/tests.svg
-          rm -f tests.svg
-          git fetch origin coverage-badge
-          git switch coverage-badge
-          cp /tmp/tests.svg tests.svg
-          git add -f tests.svg
+          git fetch origin
+
+          if git show-ref --verify --quiet refs/remotes/origin/coverage-badge; then
+            git switch coverage-badge
+          else
+            git switch -c coverage-badge
+            git rm -rf . || true
+          fi
+
+          git checkout main -- tests.svg
+
+          git add tests.svg
+
           git commit -m "Atualiza badge de testes" || echo "Nada a commitar"
+
           git push origin coverage-badge
