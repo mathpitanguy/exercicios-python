@@ -48,8 +48,6 @@ jobs:
             git rm -rf . || true
           fi
 
-          git checkout main -- tests.svg
-
           git add tests.svg
 
           git commit -m "Atualiza badge de testes" || echo "Nada a commitar"
