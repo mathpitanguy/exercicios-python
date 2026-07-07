@@ -6,4 +6,5 @@ def resposta (palavra, index):
         return palavra
     else:
         novapalavra = palavra[:index] + palavra[index+1:]
+        print(novapalavra)
         return novapalavra
