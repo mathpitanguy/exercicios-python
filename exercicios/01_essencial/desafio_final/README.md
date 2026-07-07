@@ -1,71 +1,66 @@
 ---
-Tags: Strings, Listas, Funções, Condicionais, Módulos
+Tags: Strings, Condicionais, Aleatoriedade
 Nível: Iniciante
 ---
 
 ## Objetivo
 
-Neste desafio, você vai praticar manipulação de listas, strings, condicionais e uso de módulos criando o seu **card de conclusão** do curso.
+Neste desafio, você vai praticar manipulação de strings e implementar a **Cifra de César**, um dos métodos de criptografia mais antigos que existem, para decodificar uma mensagem secreta.
+
+## Contexto
+
+A Cifra de César funciona deslocando cada letra do alfabeto um número fixo de posições. Por exemplo, com uma chave `3`, a letra `A` vira `D`, `B` vira `E`, e assim por diante. Para decodificar, o processo é inverso: desloca-se as letras para trás, na mesma quantidade.
+
+Você receberá, no comentário desta Issue, uma **mensagem codificada** e uma **chave** (um número inteiro). Sua tarefa é escrever o código que reverte a cifra e recupera a mensagem original.
 
 ## Especificação
 
-### Gere o seu card de conclusão
+### Decodifique a mensagem
 
-Abra o arquivo `main.py`. Dentro dele, localize a função `gerar_card`.
+Abra o arquivo `main.py`. Dentro dele, localize a função `decodificar`.
 
 A função deve receber:
-- uma lista `emails` com e-mails de participantes
-- uma string `email` com o seu e-mail
-- uma string `frase` com uma frase sua sobre o curso
+- uma string `mensagem` com o texto codificado (sempre em caixa alta, sem acentos)
+- um número inteiro `chave`
 
-Sua tarefa é retornar o card formatado como string seguindo os passos abaixo:
+Sua tarefa é retornar a mensagem decodificada como string, seguindo os passos abaixo:
 
-**Passo 1 — Adicione seu e-mail à lista**
-- Use `.append()` para adicionar o parâmetro `email` ao final da lista `emails`
+Passo 1 — Percorra a mensagem*
+- Use um loop `for` para percorrer cada caractere de `mensagem`
 
-**Passo 2 — Trate os e-mails da lista**
-- Percorra a lista com um loop `for`
-- Para cada e-mail, corte o texto antes do `@`
-- Substitua o `.` por espaço com `.replace()`
-- Coloque em caixa alta com `.upper()`
-- Armazene os resultados em uma nova lista chamada `nomes_tratados`
+Passo 2 — Trate letras e outros caracteres separadamente
+- Se o caractere for uma letra (`.isalpha()`), aplique a fórmula de decodificação da Cifra de César:
 
-**Passo 3 — Pegue o seu nome pelo índice**
-- Seu e-mail foi o último adicionado, então seu nome é o último da lista
-- Armazene em uma variável chamada `nome`
+- Se não for uma letra (espaço, vírgula, `!`), mantenha o caractere como está, sem nenhuma alteração
 
-**Passo 4 — Verifique o status**
-- Se `nome` estiver na lista `concluintes` → `status = "Curso TrilhaDev Concluído"`
-- Caso contrário → `status = "Curso TrilhaDev em Andamento"`
+Passo 3 — Monte e retorne o resultado
 
-**Passo 5 — Capture a data de hoje**
-- Use `datetime.now()` para obter a data atual
-- Formate como `"DD/MM/AAAA"` com `.strftime()`
-- Armazene em uma variável chamada `data`
+- Vá concatenando cada caractere processado em uma nova string
+- Retorne essa string ao final da função
 
-**Passo 6 — Monte e retorne o card**
+Atenção: utilize `return`,
 
-O card deve seguir exatamente este formato:
+### Por que usamos `% 26`?
 
-```
-NOME: JOAO SILVA
-STATUS: Curso TrilhaDev Concluído
-FRASE: Python mudou a forma como eu trabalho!
-DATA DE CONCLUSÃO: 18/06/2026
+O alfabeto tem 26 letras (A a Z), e cada letra pode ser representada por um número de `0` a `25` (a posição dela no alfabeto, começando do zero). Fazemos isso com `ord(char) - ord('A')`: como `ord('A')` é o próprio início do alfabeto, subtrair ele "zera" a régua e nos diz a posição da letra dentro do intervalo 0-25.
+
+Ao decodificar, subtraímos a `chave` dessa posição — e é aqui que mora o problema: **esse resultado pode ficar negativo**. Por exemplo:
+
+```python
+letra = 'B'   # posição 1
+chave = 5
+posicao = 1 - 5   # -4 -> não existe posição -4 no alfabeto!
 ```
 
-Exemplos:
-- `gerar_card(emails, "joao.silva@prefeitura.gov.br", "Python é incrível!")` → card com `NOME: JOAO SILVA` e `STATUS: Curso TrilhaDev Concluído`
-- `gerar_card(emails, "carlos.lima@gmail.com", "Ainda aprendendo!")` → card com `NOME: CARLOS LIMA` e `STATUS: Curso TrilhaDev em Andamento`
+Se você tentasse converter `-4` diretamente de volta para letra com `chr()`, o resultado seria um caractere fora do alfabeto, sem nenhum sentido — não existe "a 4ª letra antes do A".
 
-**Atenção:** utilize `return`, não `print`.
+É aqui que entra o `% 26` (operador módulo, o resto da divisão): em Python, o operador `%` sempre retorna um resultado **não negativo** quando o divisor é positivo, mesmo que o número original seja negativo. Ele faz o valor "dar a volta" pelo final do alfabeto, como um relógio que, ao passar de 0h, volta para 23h em vez de virar "-1h":
 
-## Como testar
-
-Execute no terminal:
-
-```bash
-pytest tests/ -v -s
+```python
+-4 % 26   # resultado: 22 -> posição 22 é a letra 'W'
 ```
 
-Se todos os testes passarem, o seu card será exibido no terminal. Copie e cole nos comentários do curso! 🏆
+Ou seja, `B` deslocado 5 posições para trás vira `W`, porque ao "passar" do `A`, o alfabeto recomeça do `Z` e conta pra trás a partir dali. Sem o `% 26`, o programa geraria um erro ou um caractere inválido ao tentar usar `chr()` com um número negativo.
+
+
+Se todos os testes passarem, você verá a mensagem decodificada no terminal. Copie e cole no comentário do Issue!
