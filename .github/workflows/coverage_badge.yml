@@ -5,7 +5,10 @@ on:
     branches:
       - main
     paths:
-      - 'exercicios/**'
+      - "exercicios/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "poetry.lock"
   workflow_dispatch:
 
 permissions:
@@ -14,15 +17,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Configura Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Instala Poetry
         run: pipx install poetry
@@ -30,28 +33,26 @@ jobs:
       - name: Instala dependências
         run: poetry install
 
-      - name: Configura usuário git
-        uses: fregante/setup-git-user@v2
-
-      - name: Gera a badge de testes
+      - name: Gera badge
         continue-on-error: true
-        run: poetry run pytest --local-badge-output-dir . --local-badge-generate=status
-
-      - name: Publica a badge na branch coverage-badge
         run: |
-          git add tests.svg
-          
-          git commit -m "Atualiza badge de testes" || echo "Nada a commitar"
+          poetry run pytest \
+            --local-badge-output-dir . \
+            --local-badge-generate=status
 
-          git fetch origin
+      - name: Verifica se a badge foi gerada
+        run: |
+          test -f tests.svg
 
-          if git show-ref --verify --quiet refs/remotes/origin/coverage-badge; then
-            git switch coverage-badge
-          else
-            git switch -c coverage-badge
-          fi 
-          
-          git checkout main -- tests.svg
-          git commit -m "Create/Update tests badge coverage-badge branch" 
+      - name: Prepara diretório para publicação
+        run: |
+          mkdir badge
+          cp tests.svg badge/
 
-          git push origin coverage-badge
+      - name: Publica badge
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: coverage-badge
+          publish_dir: badge
+          force_orphan: true
