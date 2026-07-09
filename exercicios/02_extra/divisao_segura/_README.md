@@ -13,18 +13,18 @@ Praticar o tratamento de erros com `try` e `except`. Em vez de deixar o programa
 
 Abra o arquivo `main.py`. Dentro dele, localize a função `resposta`.
 
-A função recebe os parâmetros `a` e `b` (dois números) e deve retornar o resultado da divisão de `a` por `b`. Como a divisão por zero gera um erro, proteja a operação: se `b` for `0`, capture o erro e retorne `None`.
+A função recebe os parâmetros `a` e `b` (dois números) e deve retornar o resultado da divisão de `a` por `b`. Como a divisão por zero gera um erro, proteja a operação: se `b` for `0`, capture o erro e retorne `'Valores inválidos'`.
 
 Regras:
 
 - Coloque a divisão dentro de um bloco `try`;
 - No `except`, capture o erro `ZeroDivisionError`;
-- Em caso de divisão por zero, retorne `None`.
+- Em caso de divisão por zero, retorne `'Valores inválidos'`.
 
 Exemplos:
 
 - `resposta(10, 2)` → `5.0`
 - `resposta(9, 3)` → `3.0`
-- `resposta(5, 0)` → `None`
+- `resposta(5, 0)` → `'Valores inválidos'`
 
 **Atenção:** utilize `return`, não `print`.
