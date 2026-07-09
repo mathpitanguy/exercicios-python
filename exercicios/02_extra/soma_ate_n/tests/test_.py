@@ -1,4 +1,4 @@
-from metro_milimetro.main import resposta
+from soma_ate_n.main import resposta
 import inspect
 import pytest
 
@@ -8,7 +8,7 @@ def test_not_none():
 
 
 def test_type():
-    assert type(resposta(13)) == int or type(resposta(3.2)) == float, "Esperado um inteiro ou float"
+    assert type(resposta(10)) == int, "Esperado um inteiro"
 
 
 def test_parameters():
@@ -16,6 +16,7 @@ def test_parameters():
 
 
 def test_options_resposta():
-    assert resposta(10) == 10000, f"Esperado valor 10000"
-    assert resposta(1.2) == 1200, f"Esperado valor 1200"
-    assert resposta(0.93) == 930, f"Esperado valor 930"
+    assert resposta(5) == 15, f"Esperado valor 15"
+    assert resposta(5.2) == 15, f"Esperado valor 15"
+    assert resposta(0) == 0, f"Esperado valor 0"
+    assert resposta(1) == 1, f"Esperado valor 1"
