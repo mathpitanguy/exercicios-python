@@ -5,10 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "desafio_final/**"
-      - "tests/**"
-      - "pyproject.toml"
-      - "poetry.lock"
+      - "exercicios/01_essencial/desafio_final/**"
+      - ".github/workflows/coverage_badge_desafio_final.yml"
   workflow_dispatch:
 
 permissions:
@@ -31,28 +29,27 @@ jobs:
         run: pipx install poetry
 
       - name: Instala dependências
+        working-directory: exercicios/01_essencial/desafio_final
         run: poetry install
 
-      - name: Gera badge do desafio final
+      - name: Gera badge
+        working-directory: exercicios/01_essencial/desafio_final
         continue-on-error: true
         run: |
           poetry run pytest \
-            desafio_final/tests/test_.py \
+            tests/test_.py \
             --local-badge-output-dir . \
             --local-badge-generate=status
 
       - name: Verifica se a badge foi gerada
+        working-directory: exercicios/01_essencial/desafio_final
         run: |
           test -f tests.svg
-
-      - name: Renomeia a badge
-        run: |
-          mv tests.svg desafio-final.svg
 
       - name: Prepara diretório para publicação
         run: |
           mkdir badge
-          cp desafio-final.svg badge/
+          cp exercicios/01_essencial/desafio_final/tests.svg badge/desafio-final.svg
 
       - name: Publica badge
         uses: peaceiris/actions-gh-pages@v4
