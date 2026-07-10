@@ -32,14 +32,22 @@ jobs:
         working-directory: exercicios/01_essencial/desafio_final
         run: poetry install
 
-      - name: Gera badge
+      - name: Executa testes e gera badge
         working-directory: exercicios/01_essencial/desafio_final
         continue-on-error: true
         run: |
-          poetry run pytest \
-            tests/test_.py \
-            --local-badge-output-dir . \
-            --local-badge-generate=status
+          poetry run pytest tests/test_.py
+
+          if [ $? -eq 0 ]; then
+            STATUS="4/4"
+            COLOR="brightgreen"
+          else
+            STATUS="0/4"
+            COLOR="red"
+          fi
+
+          curl -o tests.svg \
+            "https://img.shields.io/badge/desafio%20final-${STATUS}-${COLOR}"
 
       - name: Verifica se a badge foi gerada
         working-directory: exercicios/01_essencial/desafio_final
