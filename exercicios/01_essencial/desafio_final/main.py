@@ -8,7 +8,7 @@ def resposta(mensagem, chave):
             resultado += nova_letra
         else:
             resultado += char
-    return resultado
+    return posicao
 
 
 mensagem_decodificada = resposta('KVMVWZIN, HVOCZPN! QJXZ XJIXGPDP J XPMNJ OMDGCV YZQ KTOCJI.',21 )
