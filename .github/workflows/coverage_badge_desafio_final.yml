@@ -39,7 +39,7 @@ jobs:
       - name: Roda os testes do Desafio Final
         id: testes
         continue-on-error: true
-        run: poetry run pytest tests/test_desafio_final.py -q
+        run: poetry run pytest tests/test_.py -q
 
       - name: Define valor e cor da badge
         id: resultado
