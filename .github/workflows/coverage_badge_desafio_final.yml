@@ -35,23 +35,19 @@ jobs:
       - name: Executa testes e gera badge
         working-directory: exercicios/desafio_final
         run: |
-          # Executa o pytest permitindo que o script continue
           set +e
-          poetry run pytest tests/test_.py
+          PYTHONPATH=. poetry run pytest tests/test_.py
           RC=$?
           set -e
 
-          # Se RC for igual a 0, todos os testes passaram (4/4)
           if [ $RC -eq 0 ]; then
             STATUS="4%2F4"
             COLOR="brightgreen"
           else
-            # Se falhou qualquer teste (código diferente de 0), assume falha (0/4)
             STATUS="0%2F4"
             COLOR="red"
           fi
 
-          # Gera a badge com escape correto para a URL do Shields.io
           curl -o tests.svg "https://img.shields.io/badge/desafio%20final-${STATUS}-${COLOR}"
 
       - name: Verifica se a badge foi gerada
