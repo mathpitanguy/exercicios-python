@@ -19,14 +19,6 @@ def test_decodificacao_com_modulo_negativo():
     assert resultado == "Z", \
         "Quando o resultado do deslocamento é negativo, o alfabeto deve dar a volta (uso do % 26)"
 
-
 def test_decodificacao_com_pontuacao_e_modulo_26():
-    # "IFU, NOXI VYG?" com chave 20 deve virar "OLA, TUDO BEM?"
-    mensagem = "IFU, NOXI VYG?"
-    chave = 20
-    resultado = resposta(mensagem, chave)
-    print("\nMensagem enviada:", mensagem)
-    print("Chave utilizada:", chave)
-    print("Resultado:", resultado)
-    assert resultado == "OLA, TUDO BEM?", \
-        "Esperado 'OLA, TUDO BEM?' ao decodificar a mensagem com chave 20"
+    assert resposta("IFU, NOXI VYG?", 20) == "OLA, TUDO BEM?", \
+        f"Esperado valor 'OLA, TUDO BEM?'"
