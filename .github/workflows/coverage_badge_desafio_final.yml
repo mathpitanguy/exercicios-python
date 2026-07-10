@@ -35,25 +35,27 @@ jobs:
       - name: Executa testes e gera badge
         working-directory: exercicios/desafio_final
         run: |
-          set +e
-          PYTHONPATH=. poetry run pytest tests/test_.py
-          RC=$?
-          set -e
-
-          if [ $RC -eq 0 ]; then
+          echo "==== INICIANDO A EXECUÇÃO DOS TESTES ===="
+          
+          # Executa o pytest direto na condição. Se falhar 1 teste, vai pro ELSE.
+          if PYTHONPATH=. poetry run pytest tests/test_.py; then
+            echo "==== RESULTADO: SUCESSO! Todos os testes passaram. ===="
             STATUS="4%2F4"
             COLOR="brightgreen"
           else
+            echo "==== RESULTADO: FALHA! Pelo menos um teste quebrou. ===="
             STATUS="0%2F4"
             COLOR="red"
           fi
 
+          echo "==== VARIÁVEIS DEFINIDAS: Status -> $STATUS | Cor -> $COLOR ===="
+          
           curl -o tests.svg "https://img.shields.io/badge/desafio%20final-${STATUS}-${COLOR}"
+          echo "==== BADGE BAIXADA DO SHIELDS.IO ===="
 
       - name: Verifica se a badge foi gerada
         working-directory: exercicios/desafio_final
-        run: |
-          test -f tests.svg
+        run: test -f tests.svg
 
       - name: Prepara diretório para publicação
         run: |
