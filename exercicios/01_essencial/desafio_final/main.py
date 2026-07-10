@@ -11,5 +11,5 @@ def resposta(mensagem, chave):
     return resultado
 
 
-mensagem_decodificada = resposta('KVMVWZIN, HVOCZPN! QJXZ XJIXGPDP J XPMNJ OMDGCV YZQ KTOCJI',21 )
+mensagem_decodificada = resposta('KVMVWZIN, HVOCZPN! QJXZ XJIXGPDP J XPMNJ OMDGCV YZQ KTOCJI.',21 )
 print (mensagem_decodificada)
