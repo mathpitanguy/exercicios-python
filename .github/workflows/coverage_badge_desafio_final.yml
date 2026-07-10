@@ -1,0 +1,74 @@
+name: Atualiza badge do Desafio Final
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "desafio_final/**"
+      - "tests/test_desafio_final.py"
+      - "pyproject.toml"
+      - "poetry.lock"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instala Poetry
+        run: pipx install poetry
+
+      - name: Instala dependências
+        run: poetry install
+
+      - name: Instala anybadge
+        run: poetry run pip install anybadge
+
+      - name: Roda os testes do Desafio Final
+        id: testes
+        continue-on-error: true
+        run: poetry run pytest tests/test_desafio_final.py -q
+
+      - name: Define valor e cor da badge
+        id: resultado
+        run: |
+          if [ "${{ steps.testes.outcome }}" = "success" ]; then
+            echo "valor=1/1" >> "$GITHUB_OUTPUT"
+            echo "cor=green" >> "$GITHUB_OUTPUT"
+          else
+            echo "valor=0/1" >> "$GITHUB_OUTPUT"
+            echo "cor=red" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Gera badge
+        run: |
+          poetry run anybadge \
+            --label "Desafio Final" \
+            --value "${{ steps.resultado.outputs.valor }}" \
+            --color "${{ steps.resultado.outputs.cor }}" \
+            --file desafio-final.svg
+
+      - name: Prepara diretório para publicação
+        run: |
+          mkdir badge
+          cp desafio-final.svg badge/
+
+      - name: Publica badge
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: badge-desafio-final
+          publish_dir: badge
+          force_orphan: true
