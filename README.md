@@ -1,6 +1,6 @@
 # Trilha-Dev: Python - Repositório de exercícios Python com testes automatizados
 
-![test status](../coverage-badge/tests.svg?raw=true) ![desafio final](../badge-desafio-final/desafio-final.svg?raw=true)
+![test status](../coverage-badge/tests.svg?raw=true) ![desafio final](../badge-desafio-final/desafio-final.svg?v=1&raw=true)
 
 Repositório de exercícios Python com correções automáticas. Aqui, as soluções propostas para os exercícios recebem feedback instantâneo e automático via testes automatizados.
 
