@@ -1,5 +1,5 @@
 ---
-Tags: Strings, Manipulação de Strings, Condicionais
+Tags: Strings, Manipulação de Strings, Condicionais, Operadores de Comparação
 Nível: Iniciante
 ---
 
@@ -24,8 +24,8 @@ Regras:
 
 Exemplos:
 
-- `troca('code')` → `'eodc'`
-- `troca('a')` → `'a'`
-- `troca('ab')` → `'ba'`
+- `resposta('code')` → `'eodc'`
+- `resposta('a')` → `'a'`
+- `resposta('ab')` → `'ba'`
 
 **Atenção:** utilize `return`, não `print`.

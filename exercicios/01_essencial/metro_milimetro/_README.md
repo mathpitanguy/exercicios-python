@@ -1,5 +1,5 @@
 ---
-Tags: Operações Aritméticas, Funções, Conversão de Tipos
+Tags: Operações Aritméticas, Conversão de Tipos
 Nível: Iniciante
 ---
 

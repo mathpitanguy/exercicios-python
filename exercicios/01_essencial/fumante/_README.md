@@ -1,5 +1,5 @@
 ---
-Tags: Operações Aritméticas, Funções, Parâmetros
+Tags: Operações Aritméticas
 Nível: Iniciante
 ---
 

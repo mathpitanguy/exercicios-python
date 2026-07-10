@@ -1,5 +1,5 @@
 ---
-Tags: Operações Aritméticas, Funções
+Tags: Operações Aritméticas
 Nível: Iniciante
 ---
 
