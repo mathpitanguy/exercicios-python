@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "desafio_final/**"
-      - "tests/test_desafio_final.py"
+      - "tests/**"
       - "pyproject.toml"
       - "poetry.lock"
   workflow_dispatch:
@@ -33,32 +33,21 @@ jobs:
       - name: Instala dependências
         run: poetry install
 
-      - name: Instala anybadge
-        run: poetry run pip install anybadge
-
-      - name: Roda os testes do Desafio Final
-        id: testes
+      - name: Gera badge do desafio final
         continue-on-error: true
-        run: poetry run pytest tests/test_.py -q
-
-      - name: Define valor e cor da badge
-        id: resultado
         run: |
-          if [ "${{ steps.testes.outcome }}" = "success" ]; then
-            echo "valor=1/1" >> "$GITHUB_OUTPUT"
-            echo "cor=green" >> "$GITHUB_OUTPUT"
-          else
-            echo "valor=0/1" >> "$GITHUB_OUTPUT"
-            echo "cor=red" >> "$GITHUB_OUTPUT"
-          fi
+          poetry run pytest \
+            desafio_final/tests/test_.py \
+            --local-badge-output-dir . \
+            --local-badge-generate=status
 
-      - name: Gera badge
+      - name: Verifica se a badge foi gerada
         run: |
-          poetry run anybadge \
-            --label "Desafio Final" \
-            --value "${{ steps.resultado.outputs.valor }}" \
-            --color "${{ steps.resultado.outputs.cor }}" \
-            --file desafio-final.svg
+          test -f tests.svg
+
+      - name: Renomeia a badge
+        run: |
+          mv tests.svg desafio-final.svg
 
       - name: Prepara diretório para publicação
         run: |
