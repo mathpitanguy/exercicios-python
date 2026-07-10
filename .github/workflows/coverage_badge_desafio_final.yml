@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "exercicios/01_essencial/desafio_final/**"
+      - "exercicios/desafio_final/**"
       - ".github/workflows/coverage_badge_desafio_final.yml"
   workflow_dispatch:
 
@@ -29,33 +29,40 @@ jobs:
         run: pipx install poetry
 
       - name: Instala dependências
-        working-directory: exercicios/01_essencial/desafio_final
+        working-directory: exercicios/desafio_final
         run: poetry install
 
       - name: Executa testes e gera badge
-        working-directory: exercicios/01_essencial/desafio_final
+        working-directory: exercicios/desafio_final
         run: |
-          # Executa o pytest e armazena o resultado sem derrubar o step imediatamente
-          if poetry run pytest tests/test_.py; then
+          # Executa o pytest permitindo que o script continue
+          set +e
+          poetry run pytest tests/test_.py
+          RC=$?
+          set -e
+
+          # Se RC for igual a 0, todos os testes passaram (4/4)
+          if [ $RC -eq 0 ]; then
             STATUS="4%2F4"
             COLOR="brightgreen"
           else
+            # Se falhou qualquer teste (código diferente de 0), assume falha (0/4)
             STATUS="0%2F4"
             COLOR="red"
           fi
 
-          # Gera a badge usando o formato correto do Shields.io (desafio_final-status-color)
+          # Gera a badge com escape correto para a URL do Shields.io
           curl -o tests.svg "https://img.shields.io/badge/desafio%20final-${STATUS}-${COLOR}"
 
       - name: Verifica se a badge foi gerada
-        working-directory: exercicios/01_essencial/desafio_final
+        working-directory: exercicios/desafio_final
         run: |
           test -f tests.svg
 
       - name: Prepara diretório para publicação
         run: |
           mkdir badge
-          cp exercicios/01_essencial/desafio_final/tests.svg badge/desafio-final.svg
+          cp exercicios/desafio_final/tests.svg badge/desafio-final.svg
 
       - name: Publica badge
         uses: peaceiris/actions-gh-pages@v4
