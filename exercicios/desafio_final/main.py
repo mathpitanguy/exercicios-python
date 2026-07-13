@@ -1,5 +1,5 @@
 def resposta(mensagem, chave):
-    
+
     resultado = ""
     for char in mensagem:
         if char.isalpha():
@@ -11,5 +11,5 @@ def resposta(mensagem, chave):
     return resultado
 
 
-mensagem_decodificada = resposta('KVMVWZIN, HVOCZPN! QJXZ XJIXGPDP J XPMNJ OMDGCV YZQ KTOCJI.',21 )
+mensagem_decodificada = resposta('RCTCDGPU, OCVJGWU! XQEG GUVC XQCPFQ DCKZQ.',2 )
 print (mensagem_decodificada)

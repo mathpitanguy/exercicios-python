@@ -5,7 +5,7 @@ def gerar_mensagem(nome):
     chave = random.randint(1, 25)
 
     # Passo 2 — monta a mensagem original (caixa alta, sem acentos)
-    mensagem = f"PARABENS, {nome.upper()}! VOCE CONCLUIU O CURSO TRILHA DEV PYTHON"
+    mensagem = f"PARABENS, {nome.upper()}! VOCE ESTA VOANDO BAIXO."
 
     # Passo 3 — codifica a mensagem com a Cifra de César
     mensagem_codificada = ""
@@ -24,3 +24,9 @@ def gerar_mensagem(nome):
 chave, mensagem_codificada = gerar_mensagem("MATHEUS") # Insira o nome do aluno(a) aqui.
 print(f"Chave: {chave}")
 print(f"Mensagem codificada: {mensagem_codificada}")
+
+alfabeto = ""
+for i in range(97, 123):  # 97 é o código de 'a', 122 é o código de 'z'
+    alfabeto += chr(i)
+
+print(alfabeto)  # "abcdefghijklmnopqrstuvwxyz"
